@@ -13,12 +13,16 @@ const PARAMS = {
   colorSeconds: '#FF0000',
 }
 
-pane.addInput(PARAMS, 'size', { min: 8, max: 300, step: 1 })
+pane.addInput(PARAMS, 'size', { label: 'Size', min: 8, max: 300, step: 1 })
 pane.addInput(PARAMS, 'spacing', { min: 12, max: 20, step: 1 })
 pane.addInput(PARAMS, 'color')
-pane.addInput(PARAMS, 'colorHours')
-pane.addInput(PARAMS, 'colorMinutes')
-pane.addInput(PARAMS, 'colorSeconds')
+
+const colors = pane.addFolder({
+  title: 'Colors',
+})
+colors.addInput(PARAMS, 'colorHours', { label: 'Hours' })
+colors.addInput(PARAMS, 'colorMinutes', { label: 'Minutes' })
+colors.addInput(PARAMS, 'colorSeconds', { label: 'Seconds' })
 
 function getTime() {
   return dayjs().format('YYYY-MM-DD HH:mm:ss Z')
