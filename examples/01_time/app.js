@@ -89,7 +89,3 @@ const sketch = (p) => {
 }
 
 new p5(sketch)
-
-/*
-don't forget to share how to take a screenshot
-*/
