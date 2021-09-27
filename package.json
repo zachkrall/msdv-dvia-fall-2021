@@ -2,7 +2,11 @@
   "name": "msdv-dvia-fall-2021",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "dev": "browser-sync ."
+  },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "browser-sync": "^2.27.5"
+  }
 }
