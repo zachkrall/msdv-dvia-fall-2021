@@ -70,6 +70,10 @@
     .domain(binned_data.map((d, i) => i))
     .range([0, 600])
 
+  // https://github.com/d3/d3-scale-chromatic#schemeAccent
+  const colors = ['red', 'blue', 'yellow', 'green', 'purple', 'gold', 'teal']
+  const colorScale = d3.scaleOrdinal(d3.schemeTableau10)
+
   g.append('rect')
     .attr('width', x_scale.bandwidth)
     .attr('height', (d) => y_scale(d.length))
@@ -78,6 +82,7 @@
       'y',
       (d) => y_scale.range()[0] + y_scale.range()[1] - y_scale(d.length)
     )
+    .attr('fill', (d, i) => colors[i])
 
   g.append('text')
     .attr('x', (d, i) => x_scale(i))
