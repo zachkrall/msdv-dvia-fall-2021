@@ -10,6 +10,8 @@
                 d['Name'].includes('PM2.5')
                 &&
                 d['Name'].includes('Fine Particulate Matter')
+                && 
+                !d['Time Period'].includes('Annual')
             )
         })
         .sort(
@@ -183,10 +185,33 @@
             
             }
         })
+
+    const table_data = bushwick.map(i => ({
+        'Unique ID': i['Unique ID'],
+        'Date': i['Start_Date'],
+        'Data Value': i['Data Value'] + ' average ' + i['Measure Info'],
+    }))
     
+    const data_table = d3.create('table')
+    
+        data_table 
+        .append('thead')
+        .html(d => `
+            ${Object.keys(table_data[0]).map(i=> `<td>${i}</td>`).join('')}
+        `)
+
+    data_table 
+        .append('tbody')
+        .selectAll('tr')
+        .data(table_data)
+        .join('tr')
+        .html(d => `
+            ${Object.values(d).map(i=> `<td>${i}</td>`).join('')}
+        `)
     
     
     app.append(()=>svg.node())
     app.append(()=>label.node())
+    d3.select('#data-table').append(()=>data_table.node())
 
 })()

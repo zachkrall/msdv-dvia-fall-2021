@@ -33,3 +33,35 @@ main h1 {
 svg {
   display: inline-block;
 }
+
+#data-table {
+  display: flex;
+  overflow-x: auto;
+  margin-top: 2em;
+}
+
+#data-table table {
+  border: 1px solid #000;
+}
+
+#data-table table,
+#data-table table thead,
+#data-table table tbody {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#data-table table thead {
+  font-weight: 500;
+}
+
+#data-table table thead td {
+  background: #000;
+  color: #fff;
+}
+
+#data-table table td {
+  border-bottom: 1px solid black;
+  padding: 0.5em;
+  font-size: 0.8rem;
+}
