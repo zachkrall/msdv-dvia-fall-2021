@@ -1,4 +1,15 @@
 ;(async () => {
+  
+  // https://observablehq.com/@lemonnish/color-scale-using-multiple-colors
+  let color_scale = d3.scaleLinear().domain([0,0.5, 1]).range(['red', 'green', 'blue']).interpolate(d3.interpolateHcl)
+  for(let i=0; i<1; i+= 0.1){
+    let app = document.querySelector('#color_scale')
+    app.innerHTML += `
+      <div style="width:100px;height:100px;display:inline-block;background:${color_scale(i)};">&nbsp;</div>
+    `
+  }
+
+
   const app = d3.select('#app')
 
   // fetch csv data
