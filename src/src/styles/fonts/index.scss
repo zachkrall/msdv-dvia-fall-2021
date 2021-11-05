@@ -1,0 +1,16 @@
+$FONTS: (
+  'Redaction': 'Redaction-Regular.otf',
+  'Redaction10': 'Redaction10-Regular.otf',
+  'Redaction20': 'Redaction20-Regular.otf',
+  'Redaction35': 'Redaction35-Regular.otf',
+  'Redaction50': 'Redaction50-Regular.otf',
+  'Redaction70': 'Redaction70-Regular.otf',
+  'Redaction100': 'Redaction100-Regular.otf',
+);
+
+@each $typeface, $filepath in $FONTS {
+  @font-face {
+    font-family: $typeface;
+    src: url(/fonts/#{$filepath});
+  }
+}

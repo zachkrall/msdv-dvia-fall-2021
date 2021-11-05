@@ -1,0 +1,35 @@
+@import './fonts/index.scss';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Redaction', monospace;
+}
+
+.redaction-0 {
+  font-family: 'Redaction', monospace;
+}
+.redaction-10 {
+  font-family: 'Redaction10', monospace;
+}
+.redaction-20 {
+  font-family: 'Redaction20', monospace;
+}
+.redaction-30 {
+  font-family: 'Redaction35', monospace;
+}
+.redaction-40 {
+  font-family: 'Redaction50', monospace;
+}
+.redaction-50 {
+  font-family: 'Redaction70', monospace;
+}
+.redaction-60 {
+  font-family: 'Redaction100', monospace;
+}
