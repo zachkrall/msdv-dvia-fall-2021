@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Redaction';
+  src: url(./Redaction-Regular.otf);
+}
+@font-face {
+  font-family: 'Redaction10';
+  src: url(./Redaction10-Regular.otf);
+}
+@font-face {
+  font-family: 'Redaction20';
+  src: url(./Redaction20-Regular.otf);
+}
+@font-face {
+  font-family: 'Redaction35';
+  src: url(./Redaction35-Regular.otf);
+}
+@font-face {
+  font-family: 'Redaction50';
+  src: url(./Redaction50-Regular.otf);
+}
+@font-face {
+  font-family: 'Redaction70';
+  src: url(./Redaction70-Regular.otf);
+}
+@font-face {
+  font-family: 'Redaction100';
+  src: url(./Redaction100-Regular.otf);
+}
+
+/*# sourceMappingURL=index.css.map */

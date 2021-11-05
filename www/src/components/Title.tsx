@@ -49,6 +49,45 @@ const Title = () => {
   return (
     <>
       <Wrapper>
+        <div
+          style={{
+            position: 'absolute',
+            // overflow: 'hidden',
+            width: '100%',
+            height: '100%',
+          }}
+        >
+          {[
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+            20, 21, 22, 23, 24, 25, 26, 27, 28,
+          ].map((student) => {
+            return (
+              <motion.div
+                key={student + 'box'}
+                style={{
+                  x:
+                    (student / 28) * window.innerWidth +
+                    window.innerWidth * Math.random() +
+                    window.innerWidth,
+                  y: Math.max(
+                    100,
+                    Math.random() * (window.innerHeight * Math.random() - 600)
+                  ),
+                  width: 50,
+                  height: 50,
+                  backgroundColor: `hsla(${(student / 28) * 360}, 50%, 50%, 1)`,
+                }}
+                animate={{
+                  x: 0 - (student / 28) * window.innerWidth - 300,
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 5 * Math.random() + 5,
+                }}
+              ></motion.div>
+            )
+          })}
+        </div>
         <motion.h1 style={{ y: spring }}>
           <span className="redaction-40">Data</span>
           <span className="redaction-30">Visualization</span>
