@@ -1,36 +1,37 @@
-import React from 'react'
-import { HashRouter, Routes, Route, Link } from 'react-router-dom'
-import loadable from '@loadable/component'
-import './styles/global.scss'
-
-import NavBar from './components/NavBar'
-import Title from './components/Title'
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-
+import React, { Suspense } from 'react'
+import { Provider } from 'react-redux'
+import { HashRouter, Switch, Route, useLocation } from 'react-router-dom'
+import { store } from './redux/store'
+import { AnimatePresence } from 'framer-motion'
+import Layout from './components/layout'
 /* pages */
-import IndexPage from './routes/index'
-const AboutPage = loadable(() => import('./routes/about'))
-const Projects = loadable(() => import('./routes/projects'))
+import IndexPage from './pages/index'
+const Projects = React.lazy(() => import('./pages/projects'))
 
 const App = () => {
   return (
-    <AnimateSharedLayout type="crossfade">
+    <Provider store={store}>
       <HashRouter>
-        <div>
-          <NavBar />
-          <Title />
-          <IndexPage />
-
-          <AnimatePresence>
-            <Routes>
-              <Route path="/" element={<></>} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/projects/:projectId" element={<Projects />} />
-            </Routes>
-          </AnimatePresence>
-        </div>
+        <Main />
       </HashRouter>
-    </AnimateSharedLayout>
+    </Provider>
+  )
+}
+
+const Main = () => {
+  const location = useLocation()
+  return (
+    <Suspense fallback={<>Loading...</>}>
+      <Layout>
+        <IndexPage />
+
+        <AnimatePresence>
+          <Switch location={location} key={location.pathname}>
+            <Route exact path="/projects/:projectId" component={Projects} />
+          </Switch>
+        </AnimatePresence>
+      </Layout>
+    </Suspense>
   )
 }
 
